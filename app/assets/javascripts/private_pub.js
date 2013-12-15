@@ -18,7 +18,8 @@ function buildPrivatePub(doc) {
           script.type = "text/javascript";
           script.src = self.subscriptions.server + ".js";
           script.onload = self.connectToFaye;
-          doc.documentElement.appendChild(script);
+          var first = document.getElementsByTagName('script')[0];
+          first.parentNode.insertBefore(script, first);
         }
       }
     },
